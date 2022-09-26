@@ -12,6 +12,12 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+"""
+Print a list of all resources available from the server
+
+$ python resources.py
+"""
+
 import logging
 
 import twc

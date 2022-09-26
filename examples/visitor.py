@@ -12,6 +12,12 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+"""
+Demonstrate how to use ModelBrowser to recursively visit the model
+
+$ python visitor.py <project_name>
+"""
+
 import sys
 import logging
 
@@ -59,6 +65,10 @@ if __name__ == '__main__':
     import asyncio
 
     logging.basicConfig(level=logging.INFO)
+
+    if len(sys.argv) != 2:
+        logger.error(f'Usage: {sys.argv[0]} <project_name>')
+        sys.exit(1)
 
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.run(main(sys.argv[1]))

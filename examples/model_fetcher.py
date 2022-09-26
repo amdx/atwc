@@ -12,6 +12,12 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+"""
+Demonstrate how to use ModelBrowser to access the elements owned by the Model
+
+$ python model_fetcher.py <project_name>
+"""
+
 import sys
 import logging
 
@@ -46,5 +52,9 @@ if __name__ == '__main__':
     import asyncio
 
     logging.basicConfig(level=logging.INFO)
+
+    if len(sys.argv) != 2:
+        logger.error(f'Usage: {sys.argv[0]} <project_name>')
+        sys.exit(1)
 
     asyncio.run(main(sys.argv[1]))
