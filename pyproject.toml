@@ -2,7 +2,18 @@
 name = "twc"
 version = "1.0.0"
 description = "Python interface to TWC's API"
+license = "Apache-2.0"
+readme = "README.md"
 authors = ["Marco Fagiolini <mfx@amdx.de>"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Framework :: AsyncIO",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+repository = "https://github.com/amdx/python-twc"
 
 [tool.poetry.dependencies]
 python = "^3.8"
