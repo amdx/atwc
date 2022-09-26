@@ -72,7 +72,9 @@ class ModelBrowser:
 
     async def load(self, resource_name, suffix='MASTER'):
         logger.debug(f'Finding resource {resource_name} suffix={suffix}')
-        status, resources = await self._client.get('resources?includeBody=true')
+        status, resources = await self._client.get(
+            'resources?includeBody=true'
+        )
         for resource in resources:
             if resource['dcterms:title'] == f'{resource_name}.{suffix}':
                 self._resource = resource
@@ -128,7 +130,8 @@ class ModelBrowser:
         project = await self.get_element(project_id)
 
         owned_sections_ids = [a['@id']
-                              for a in project['kerml:esiData']['ownedSections']]
+                              for a in
+                              project['kerml:esiData']['ownedSections']]
 
         owned_sections = await self.get_elements_batch(owned_sections_ids)
 
@@ -141,7 +144,9 @@ class ModelBrowser:
         return None
 
     async def find_stereotype(self, element, name):
-        stereo_ids = utils.extract_ids(element['kerml:esiData']['appliedStereotype'])
+        stereo_ids = utils.extract_ids(
+            element['kerml:esiData']['appliedStereotype']
+        )
         if not stereo_ids:
             return None
 
@@ -165,7 +170,9 @@ class ModelBrowser:
         else:
             ccp_stereo_id = None
 
-        tagged_value_ids = utils.extract_ids(element['kerml:esiData']['taggedValue'])
+        tagged_value_ids = utils.extract_ids(
+            element['kerml:esiData']['taggedValue']
+        )
         tagged_values = await self.get_elements_batch(tagged_value_ids)
 
         for tv_id, tagged_value in tagged_values.items():
