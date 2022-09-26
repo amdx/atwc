@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "twc"
+version = "1.0.0"
+description = "Python interface to TWC's API"
+authors = ["Marco Fagiolini <mfx@amdx.de>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiohttp = "^3.8.1"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

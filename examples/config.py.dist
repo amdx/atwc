@@ -1,0 +1,3 @@
+URL = 'https://my.twc:8111/osmc/'
+USER = 'twcuser'
+PASSWORD = 'twcpassword'
