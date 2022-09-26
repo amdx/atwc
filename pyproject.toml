@@ -5,7 +5,7 @@ description = "Python interface to TWC's API"
 authors = ["Marco Fagiolini <mfx@amdx.de>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 aiohttp = "^3.8.1"
 
 [tool.poetry.dev-dependencies]
