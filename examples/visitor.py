@@ -70,5 +70,8 @@ if __name__ == '__main__':
         logger.error(f'Usage: {sys.argv[0]} <project_name>')
         sys.exit(1)
 
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    if sys.platform == 'win32':
+        asyncio.set_event_loop_policy(
+            asyncio.WindowsSelectorEventLoopPolicy()
+        )
     asyncio.run(main(sys.argv[1]))
