@@ -12,6 +12,35 @@ This library has been primarily written as interface abstraction for
 Archimedes Exhibitions GmbH's Cameo Collaborator Publisher service, hence it's
 not intended as a general-purpose solution.
 
+## Installation
+
+```bash
+$ pip3 install atwc
+```
+
+## Usage example
+
+```python
+import asyncio
+import atwc
+
+
+async def main():
+    client = atwc.client.Client('https://twc.local:8111/osmc/', 'user', 'password')
+
+    async with client.create_session():
+        browser = atwc.browsers.ResourceBrowser(client)
+        await browser.fetch()
+
+        print('MagicDraw resources:')
+        for resource in browser.md_resources:
+            print(f'  {await browser.get_category_path(resource)}/'
+                  f'{resource["dcterms:title"]}')
+
+
+asyncio.run(main())
+```
+
 ## Running the examples
 
 Copy the file `config.py.dist` into `config.py` in the `examples` folder:
