@@ -21,24 +21,24 @@ $ python model_fetcher.py <project_name>
 import sys
 import logging
 
-import twc
+import atwc
 import config
 
 logger = logging.getLogger(__name__)
 
 
 async def main(project_name):
-    client = twc.client.Client(config.URL, config.USER, config.PASSWORD)
+    client = atwc.client.Client(config.URL, config.USER, config.PASSWORD)
 
     async with client.create_session():
-        browser = twc.browsers.ModelBrowser(client=client)
+        browser = atwc.browsers.ModelBrowser(client=client)
         await browser.load(project_name)
 
         root = await browser.get_model_root()
         print(f'Model root package: id={root["kerml:esiData"]["ID"]} '
               f'name={root["kerml:esiData"]["name"]}')
 
-        owned_elements_ids = twc.utils.extract_ids(root["kerml:ownedElement"])
+        owned_elements_ids = atwc.utils.extract_ids(root["kerml:ownedElement"])
         queried_elements = await browser.get_elements_batch(owned_elements_ids)
         owned_elements = [el['data'][1] for el in queried_elements.values()]
 

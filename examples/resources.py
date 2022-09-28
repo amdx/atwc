@@ -20,7 +20,7 @@ $ python resources.py
 
 import logging
 
-import twc
+import atwc
 import config
 
 
@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 async def list_resources(client):
     async with client.create_session():
-        browser = twc.browsers.ResourceBrowser(client)
+        browser = atwc.browsers.ResourceBrowser(client)
         await browser.fetch()
 
         logger.info('CC resources:')
@@ -43,7 +43,7 @@ async def list_resources(client):
 
 
 async def main():
-    client = twc.client.Client(config.URL, config.USER, config.PASSWORD)
+    client = atwc.client.Client(config.URL, config.USER, config.PASSWORD)
     await list_resources(client)
 
 

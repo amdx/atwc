@@ -21,7 +21,7 @@ $ python visitor.py <project_name>
 import sys
 import logging
 
-import twc
+import atwc
 import config
 
 
@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 async def print_children(element, browser, level=0):
     if element["kerml:ownedElement"]:
-        owned_elements_ids = twc.utils.extract_ids(
+        owned_elements_ids = atwc.utils.extract_ids(
             element["kerml:ownedElement"]
         )
         queried_elements = await browser.get_elements_batch(owned_elements_ids)
@@ -48,10 +48,10 @@ async def print_children(element, browser, level=0):
 
 
 async def main(project_name):
-    client = twc.client.Client(config.URL, config.USER, config.PASSWORD)
+    client = atwc.client.Client(config.URL, config.USER, config.PASSWORD)
 
     async with client.create_session():
-        browser = twc.browsers.ModelBrowser(client=client)
+        browser = atwc.browsers.ModelBrowser(client=client)
         await browser.load(project_name)
 
         root = await browser.get_model_root()

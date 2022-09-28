@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "twc"
+name = "atwc"
 version = "1.0.0"
 description = "Python interface to TWC's API"
 license = "Apache-2.0"
@@ -13,7 +13,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-repository = "https://github.com/amdx/python-twc"
+repository = "https://github.com/amdx/atwc"
 
 [tool.poetry.dependencies]
 python = "^3.8"
