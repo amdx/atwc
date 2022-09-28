@@ -1,4 +1,4 @@
-# Python TWC
+# aTWC - Python interface to Teamwork Cloud
 
 Python interface to NoMagic/CATIA Teamwork Cloud Server.
 
@@ -11,6 +11,8 @@ TWC exposes a REST API that allows interaction with the stored models.
 This library has been primarily written as interface abstraction for
 Archimedes Exhibitions GmbH's Cameo Collaborator Publisher service, hence it's
 not intended as a general-purpose solution.
+
+aTWC is developed and maintained by [Archimedes Exhibitions GmbH](https://www.archimedes-exhibitions.de). 
 
 ## Installation
 
