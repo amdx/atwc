@@ -19,7 +19,7 @@ repository = "https://github.com/amdx/atwc"
 python = "^3.8"
 aiohttp = "^3.8.1"
 
-[tool.poetry.dev-dependencies]
+[poetry.group.dev.dependencies]
 flake8 = "^5.0.4"
 
 [build-system]
