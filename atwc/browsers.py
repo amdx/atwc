@@ -115,11 +115,9 @@ class ModelBrowser:
                or isinstance(elements_id, tuple) \
                or isinstance(elements_id, set)
 
-        elements_id = ','.join(elements_id)
-
         status, result = await self._client.post(
             f'resources/{self._resource["ID"]}/elements',
-            data=elements_id
+            data=list(elements_id)
         )
 
         return result

@@ -16,6 +16,7 @@ import logging
 import time
 import urllib.parse
 from contextlib import asynccontextmanager
+import json
 
 import aiohttp
 
@@ -65,6 +66,10 @@ class Client:
         assert self._session
         url = urllib.parse.urljoin(self._api_url, path)
         logger.debug(f'Posting to {url} data={data}')
+
+        if type(data) != str:
+            data = json.dumps(data)
+
         async with self._session.post(url, data=data) as response:
             payload = await response.json()
             status = response.status
